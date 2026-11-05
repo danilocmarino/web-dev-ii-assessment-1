@@ -1,0 +1,246 @@
+/* Header layout using Flexbox */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #231651;
+  color: white;
+}
+
+/* Navigation links */
+nav {
+  display: flex;
+  gap: 48px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+/* Lato for regular text */
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+/* Teko for headings and buttons */
+h1,
+h2,
+h3,
+button {
+  font-family: 'Teko', sans-serif;
+}
+/* Logo and button typography */
+header h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+header button {
+  font-size: 2em;
+  padding: 0 16px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+/* Mobile logo size */
+@media (max-width: 719px) {
+  header h1 {
+    font-size: 2em;
+  }
+}
+/* Movie card appearance */
+.movie-card {
+  background-color: white;
+  border: 2px solid #231651;
+  box-shadow: 4px 4px 0 #231651;
+  max-width: 900px;
+  margin: 48px auto;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* Movie poster */
+.movie-card img {
+  display: block;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+/* Movie description */
+.movie-info {
+  padding-top: 16px;
+}
+
+/* Spacing inside movie cards */
+.movie-info h2 {
+  margin: 0 0 16px;
+}
+
+.movie-info p {
+  margin: 0 0 16px;
+}
+
+.movie-info p {
+  font-size: 1.5em;
+  line-height: 1.4;
+}
+
+/* Watch button */
+.movie-info button {
+  font-size: 2em;
+  padding: 8px 16px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+/* Main content container */
+.movies-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px;
+}
+
+@media (max-width: 1023px) {
+  .movies-container {
+    padding: 32px;
+  }
+}
+
+@media (max-width: 719px) {
+  .movies-container {
+    padding: 16px;
+  }
+}
+/* Tablet layout: two columns of movie cards */
+@media (min-width: 720px) and (max-width: 1023px) {
+  .movies-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+  }
+
+  .movie-card {
+    margin: 0;
+    min-width: 0;
+  }
+}
+/* Keep movie card content vertically organised */
+.movie-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Allow the description area to fill available space */
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Push the watch button towards the bottom */
+.movie-info button {
+  margin-top: auto;
+}
+/* Desktop movie layout */
+@media (min-width: 1024px) {
+  .movies-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px;
+  }
+  /* Remove extra margins from desktop cards */
+.movie-card {
+  margin: 0;
+  min-width: 0;
+}
+
+/* Featured movie spans both columns */
+.movie-card:first-child {
+  grid-column: 1 / -1;
+}
+
+/* Last three movies span both columns */
+.movie-card:nth-child(n + 4) {
+  grid-column: 1 / -1;
+}
+    /* Horizontal cards for the last three movies */
+.movie-card:nth-child(n + 4) {
+  flex-direction: row;
+  align-items: stretch;
+  gap: 16px;
+  }
+}
+
+.movie-card:nth-child(n + 4) img {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+}
+
+.movie-card:nth-child(n + 4) .movie-info {
+  width: 50%;
+  padding-top: 0;
+}
+
+
+  .movie-card {
+    margin: 0;
+    min-width: 0;
+  }
+
+  /* Featured movie occupies both columns */
+  .movie-card:first-child {
+    grid-column: 1 / -1;
+  }
+
+  /* Last three movies occupy both columns */
+  .movie-card:nth-child(n + 4) {
+    grid-column: 1 / -1;
+  }
+
+/* Featured movie layout on desktop */
+@media (min-width: 1024px) {
+  .movie-card:first-child .movie-info {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: end;
+  }
+
+  .movie-card:first-child .movie-info h2 {
+    grid-column: 1 / -1;
+  }
+
+  .movie-card:first-child .movie-info button {
+    margin-top: 0;
+  }
+}
+/* Mobile layout: spacing between movie cards */
+@media (max-width: 719px) {
+  .movie-card {
+    margin: 0 0 16px;
+  }
+}/* Mobile header layout */
+@media (max-width: 719px) {
+  header {
+    padding: 16px;
+  }
+
+  /* Hide navigation links on mobile */
+  header nav {
+    display: none;
+  }
+
+  header h1 {
+    font-size: 2em;
+  }
+}
+/* Show complete movie posters on mobile */
+@media (max-width: 719px) {
+  .movie-card img {
+    height: auto;
+    object-fit: contain;
+  }
+}
